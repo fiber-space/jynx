@@ -1,2 +1,5 @@
 *.pyc
 *.class
+!Sentinel.class
+!JyGateway.class
+!TypeVisitor.class
