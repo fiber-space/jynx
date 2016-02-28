@@ -26,7 +26,7 @@ def find_jars(pth, exclude = "", recursive = True):
         # add $ to care for matching the end of the path        
         p_exclude = re.compile(S+"$")
 
-    def visit(excluded_paths, dirname, names):        	
+    def visit(excluded_paths, dirname, names):                
         # if recursion is not supported only use the path which was passed to the
         # function
     	if not recursive and pth!=dirname:
@@ -41,9 +41,10 @@ def find_jars(pth, exclude = "", recursive = True):
     		return
     	else:
             # be content with the rest
-    		for name in names:
-    			if name.endswith(".jar"):
-    				jars[name] = dirname
+            for name in names:
+                if name.endswith(".jar"):
+                    if name not in jars:
+    				    jars[name] = dirname
 
     os.path.walk(pth, visit, excluded_paths)
     result = []
